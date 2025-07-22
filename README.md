@@ -19,9 +19,9 @@ To take AI to the next level, smarter than humans, techniques from AlphaZero are
 
 ​Participants can expect to learn a deep understanding of AlphaZero’s core components:
 
-​Reinforcement learning (RL)
-​Monte Carlo Tree Search (MCTS)
-​Neural Networks
+​Reinforcement learning (RL)\
+​Monte Carlo Tree Search (MCTS)\
+​Neural Networks\
 ***
 
 ​The Syllabus will cover the following topics:
