@@ -21,18 +21,18 @@ To take AI to the next level, smarter than humans, techniques from AlphaZero are
 
 ​Reinforcement learning (RL)\
 ​Monte Carlo Tree Search (MCTS)\
-​Neural Networks\
+​Neural Networks
 ***
 
 ​The Syllabus will cover the following topics:
 
-​RL and Self-Play Basics
-​Mastering MCTS
-​Neural Network Design
-​Data and Self-Play
-​AlphaZero Training Workflow
-​AlphaZero Evaluation Techniques
-​Customising AlphaZero for a new domain
-​AlphaZero Optimisation Strategies
+​RL and Self-Play Basics\
+​Mastering MCTS\
+​Neural Network Design\
+​Data and Self-Play\
+​AlphaZero Training Workflow\
+​AlphaZero Evaluation Techniques\
+​Customising AlphaZero for a new domain\
+​AlphaZero Optimisation Strategies\
 
 ​To wrap it up participants will get to adapt AlphaZero to a specific domain.
