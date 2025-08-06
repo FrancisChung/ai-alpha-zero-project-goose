@@ -1,13 +1,16 @@
-# Act IV: Q&A - Clarifying the Building Blocks 🤔
+# Act IV: Q&A - Clarifying Policies and Value Functions 🤔
 
-Does the distinction between a 'State', an 'Action', and a 'Reward' make sense? Any questions about those specific terms?
+We've introduced two new key terms: 'Policy' and 'Value Function'. Do you have any questions about what they represent?
 
-These three concepts are fundamental to everything in reinforcement learning:
+Let me make sure these concepts are crystal clear:
 
-- **State** = What the agent sees/knows about the current situation
-- **Action** = What the agent chooses to do
-- **Reward** = The feedback the agent gets for that choice
+- **Policy** = The agent's decision-making strategy ("what should I do in this situation?")
+- **Value Function** = The agent's evaluation system ("how good is this situation for me?")
 
-Understanding the clear separation between these three elements is crucial because they each play different roles in how an agent learns to make better decisions over time.
+These work together like a chess master who both:
+1. Has strategies for different positions (policy)
+2. Can evaluate how promising each position looks (value function)
 
-Do you have any questions about these concepts, or are you ready to move to the final challenge?
+The beautiful thing is that as the agent learns, both the policy and value function improve together - leading to smarter decisions and better position evaluation.
+
+Do you have any questions about these concepts, or are you ready to move to the final challenge? any questions about these concepts, or are you ready to move to the final challenge?
