@@ -86,3 +86,59 @@ trajectory = [
 So the `-1` in Move 3's state is Player -1's piece that was placed during Move 2!
 
 Does this clarify the player alternation and state recording process?
+
+## Q2: Why are the players represented as Player 1 and Player -1 and not Player 1 and Player 2?
+
+Excellent question! This is a clever design choice that makes the math much simpler. Let me explain why:
+
+## The Mathematical Elegance of 1 and -1:
+
+### **Easy Player Switching:**
+```python
+# With 1 and -1:
+self.active_player *= -1  # Flips between 1 and -1
+# 1 * -1 = -1
+# -1 * -1 = 1
+
+# With 1 and 2 (more complex):
+if self.active_player == 1:
+    self.active_player = 2
+else:
+    self.active_player = 1
+```
+
+### **Symmetric Rewards:**
+```python
+# With 1 and -1:
+if player_1_wins:
+    return 1   # Player 1 gets +1
+    # Player -1 automatically gets -1 (opposite)
+
+# With 1 and 2 (requires mapping):
+if player_1_wins:
+    return {1: +1, 2: -1}  # Need to specify both
+```
+
+### **Zero-Sum Game Logic:**
+- ✅ **Perfect Symmetry**: What's good for Player 1 (+1) is exactly bad for Player -1 (-1)
+- ✅ **Automatic Negation**: Flip the sign to get opponent's perspective
+- ✅ **Mathematical Consistency**: Sum always equals zero (1 + (-1) = 0)
+
+## Real AlphaZero Benefits:
+
+**Value Function Training:**
+```python
+# Player 1's perspective: "This position is worth +0.7"
+# Player -1's perspective: "This position is worth -0.7"
+# Just negate the value instead of separate calculations!
+```
+
+**Neural Network Efficiency:**
+- One value network serves both players
+- Just flip the sign based on whose turn it is
+- Half the complexity, double the training data per position!
+
+## The Bottom Line:
+Using 1 and -1 instead of 1 and 2 makes the code cleaner, the math simpler, and perfectly captures the competitive nature of two-player zero-sum games!
+
+Pretty elegant mathematical design, right? 🎯
