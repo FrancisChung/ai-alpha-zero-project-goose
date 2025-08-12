@@ -41,3 +41,48 @@ This is a profound question that connects to everything you've learned about RL!
 **Learning happens in the connections between moves, not just the final result.** Full trajectories reveal the causal chain that teaches strategic thinking!
 
 Do you see how this connects to the value functions and planning concepts you learned earlier?
+
+## Q1: In Act 3  in the example of the trajectory, why is the 3rd value of the array -1 for Move 3?
+
+Excellent observation! Let me clarify that trajectory example from Act III.
+
+## Understanding the Player Switching:
+
+In the trajectory example I showed:
+```python
+trajectory = [
+    {'state': [[0,0,0,0,0,0,0],...], 'action': 3},  # Move 1: Player 1 drops in column 3
+    {'state': [[0,0,0,1,0,0,0],...], 'action': 2},  # Move 2: Player -1 drops in column 2  
+    {'state': [[0,0,-1,1,0,0,0],...], 'action': 4}, # Move 3: Player 1 drops in column 4
+]
+```
+
+## Why -1 Appears in Move 3's State:
+
+**The Key:** The `state` in each trajectory step shows the board **before** that move is made.
+
+**Move-by-Move Breakdown:**
+
+**Move 1 (Player 1's turn):**
+- State shows: Empty board `[0,0,0,0,0,0,0]`
+- Action: Drop in column 3
+- After move: Board has `1` in column 3
+
+**Move 2 (Player -1's turn):**
+- State shows: Board with Player 1's piece `[0,0,0,1,0,0,0]`
+- Action: Drop in column 2
+- After move: Board has both pieces `[0,0,-1,1,0,0,0]`
+
+**Move 3 (Player 1's turn again):**
+- State shows: Board with both pieces `[0,0,-1,1,0,0,0]`
+- This includes the `-1` from Player -1's previous move!
+- Action: Drop in column 4
+
+## Remember from Earlier Lessons:
+- **Player Values**: Player 1 = `1`, Player 2 = `-1`
+- **Turn Switching**: `self.active_player *= -1` alternates between players
+- **State Capture**: We record the state **before** each action
+
+So the `-1` in Move 3's state is Player -1's piece that was placed during Move 2!
+
+Does this clarify the player alternation and state recording process?
