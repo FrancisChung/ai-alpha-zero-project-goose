@@ -19,6 +19,8 @@ class GymnasiumConnectFour(gym.Env):
         )
 
         # Initialize your game state
+        self.board = None
+        self.current_player = None
         self.reset()
 
     def step(self, action):
@@ -28,8 +30,10 @@ class GymnasiumConnectFour(gym.Env):
 
     def reset(self, seed=None, options=None):
         # TODO: Reset environment to initial state
-        # Must return: (observation, info)
-        pass
+        self.board = np.zeros((6,7), dtype = np.int8)
+        self.current_player = 1
+        return self.board.copy(), {}
+
 
     def render(self, mode='human'):
         # TODO: Optional visualization
