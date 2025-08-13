@@ -4,6 +4,7 @@
 import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
+from math import random
 
 
 class GymnasiumConnectFour(gym.Env):
@@ -70,5 +71,29 @@ class GymnasiumConnectFour(gym.Env):
     def render(self, mode='human'):
         # TODO: Optional visualization
         pass
+
+    def simulate_trajectory(env):
+        trajectory = []
+        outcome = 0
+
+        while outcome == 0:
+            # In practice, the agent would choose an action based on a policy
+            # Here, we choose randomly from valid options
+            action = random.choice(env.get_action_space())
+
+            # Capture the state before the action
+            state_snapshot = env.state.copy()
+
+            # Apply the action and transition to a new state
+            env.transition(action)
+
+            # Get the outcome (0 if still running, +1 or -1 if terminal)
+            outcome = env.get_outcome()
+
+            # Record this step in the trajectory
+            trajectory.append({'state': state_snapshot, 'action': action})
+
+        print(f"Trajectory complete: {len(trajectory)} steps. Final outcome: {outcome}")
+        return trajectory
 
 # When you're ready, submit your complete implementation!
