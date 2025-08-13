@@ -24,13 +24,27 @@ class GymnasiumConnectFour(gym.Env):
         self.reset()
 
     def step(self, action):
+        # 1. Apply the action (drop piece)
+        # 2. Check if game ended
+        # 3. Switch players
+        # 4. Calculate reward
+        # 5. Return (observation, reward, terminated, truncated, info)
+
+
         # TODO: Implement your transition logic here
         # Must return: (observation, reward, terminated, truncated, info)
         pass
 
+    def transition(self, action_col):
+        for r in range(5, -1, -1):
+            if self.state[r][action_col] == 0:
+                self.state[r][action_col] = self.active_player
+                break
+        self.active_player *= -1
+
     def reset(self, seed=None, options=None):
         # TODO: Reset environment to initial state
-        self.board = np.zeros((6,7), dtype = np.int8)
+        self.board = np.zeros((6,7), dtype = np.int8) #col, row
         self.current_player = 1
         return self.board.copy(), {}
 
