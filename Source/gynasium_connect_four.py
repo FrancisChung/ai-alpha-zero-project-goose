@@ -42,6 +42,15 @@ class GymnasiumConnectFour(gym.Env):
                 break
         self.active_player *= -1
 
+    def win_outcome_horizontal(self, player_num: int):
+        # Check for player 1 win
+        for r in range(6):
+            for c in range(4):
+                if all(self.state[r][c + i] == player_num for i in range(4)):
+                    return 1  # Terminal state: player 1 wins
+        # (Add checks for player 2 and draws here)
+        return 0  # Not a terminal state
+
     def reset(self, seed=None, options=None):
         # TODO: Reset environment to initial state
         self.board = np.zeros((6,7), dtype = np.int8) #col, row
