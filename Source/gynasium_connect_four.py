@@ -41,6 +41,8 @@ class GymnasiumConnectFour(gym.Env):
             if self.state[r][action_col] == 0:
                 self.state[r][action_col] = self.active_player
                 break
+
+    def switch_players(self):
         self.active_player *= -1
 
     def win_outcome_horizontal(self, player_num: int):
